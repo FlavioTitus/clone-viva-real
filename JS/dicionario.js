@@ -1,0 +1,22 @@
+const amenities  = {
+  'AIR_CONDITIONING':'Ar Condicionado',
+  'AMERICAN_KITCHEN':'Cozinha Americana',
+  'BARBECUE_GRILL':'Churrasqueira',
+  'BICYCLES_PLACE':'Bicicletário',
+  'CINEMA':'Cinema',
+  'ELECTRONIC_GATE':'Portaria Eletrônica',
+  'ELEVATOR':'Elevador',
+  'FIREPLACE':'Lareira',
+  'FURNISHED':'Mobiliado',
+  'GARDEN':'Jardim',
+  'GATED_COMMUNITY':'Condomínio Fechado',
+  'GYM':'Academia',
+  'LAUNDRY':'Lavanderia',
+  'PARTY_HALL':'Salão de Festas',
+  'PETS_ALLOWED':'Aceita PETS',
+  'PLAYGROUND':'Playground',
+  'POOL':'Piscina',
+  'SAUNA':'Sauna',
+  'SPORTS_COURT':'Quadra de Esportes',
+  'TENNIS_COURT':'Quadra de Tênis'
+}
