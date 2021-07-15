@@ -36,8 +36,9 @@
       <aside>
         <div class="search-box">
           <h5>LOCALIZAÇÃO DO IMÓVEL</h5>
-          <input type="text" placeholder="Digite uma rua, bairro ou cidade">
-          <p class="selected-location">São Paulo - SP</p>
+          <input type="text" class="inputCity" placeholder="Digite uma rua, bairro ou cidade">
+          <button type="button" class="btn" id='btn'>BUSCAR</button>
+          <p class="selected-location"></p>
           <h5>IMÓVEL COM</h5>
           <div class="toggle">
             <img src="./media/toggle-button.png" alt="">
@@ -114,14 +115,16 @@
         <hr/>
         
         <div class="qt-city">
-          <h2 class="total-count">000 imóveis à venda em São Paulo - SP</h2>
-          <p class="city-state">São Paulo - SP</p>
+          <h2 class="total-count"></h2>
+          <p class="city-state"></p>
         </div>
       </div>
 
       <div class="card">
 
-        <div class="unity">
+        <h1 class="error-msg"></h1>
+
+        <!-- <div class="unity">
         <div class="informations">
         <div class="address">
           <p class="addressName">avenida central, 40 - Leme - São Paulo - SP</p>
@@ -146,9 +149,9 @@
       <picture class="photo">
         <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGFwYXJ0bWVudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" class="img">
       </picture>
-    </div>
+        </div> -->
 
-    <div class="unity">
+        <!-- <div class="unity">
       <div class="informations">
       <div class="address">
         <p class="addressName">avenida central, 40 - Leme - São Paulo - SP</p>
@@ -173,11 +176,11 @@
     <picture class="photo">
       <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGFwYXJ0bWVudHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" class="img">
     </picture>
-  </div>
-
-
+        </div> -->
 
       </div>
+
+
     </div>
     </div>
   </div>
@@ -255,6 +258,6 @@
       </div>
     </div>
   </footer>
-
+  <script src="./JS/app.js"></script>
 </body>
 </html>

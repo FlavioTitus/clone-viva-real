@@ -25,9 +25,10 @@ const inputCity = document.querySelector('.inputCity')
 const btn = document.querySelector('.btn')
 const divCards = document.querySelector('.card')
 const title = document.querySelector('.title')
-const totalCount = document.querySelector('.totalCount')
-const cityState = document.querySelector('.cityState')
-const errorMsg = document.querySelector('.errorMsg')
+const totalCount = document.querySelector('.total-count')
+const cityState = document.querySelector('.city-state')
+const selectedLocation = document.querySelector('.selected-location')
+const errorMsg = document.querySelector('.error-msg')
 
 const property = []
 let city = ''
@@ -38,6 +39,13 @@ let totalProperties = 0
 inputCity.addEventListener('input', e => {
   texto = e.target.value
 })
+
+inputCity.addEventListener('keyup', (event) => {
+	if (event.key === 'Enter') {
+		searchCity(inputCity.value);
+	}
+})
+
 
 const translate = amenity => {
   const ptBr = amenity.map( item => {
@@ -51,16 +59,24 @@ const formatCurrency = numero => {
   return formated
 }
 
-btn.addEventListener('click', () => {
-  totalCount.textContent = `${totalProperties} imoveis à venda em ${property.city} - ${ property.state} `
-  cityState.textContent = `${property.city} - ${property.state}`
-})
+// btn.addEventListener('click', () => {
+//   totalCount.textContent = `${totalProperties} imoveis à venda em ${city} - ${state}`
+//   cityState.textContent = `${property.city} - ${property.state}`
+//   selectedLocation.textContent = `${property.city} - ${property.state}`
+// })
 
 const getImovel = async () => {
   try {
     const response = await fetch('https://private-9e061d-piweb.apiary-mock.com/venda?state=sp&city=sao-paulo')
     const data = await response.json()
     totalProperties = data.search.totalCount
+    city = data.search.result.listings[0].listing.address.city
+    state = data.search.result.listings[0].listing.address.stateAcronym
+
+    cityState.textContent = `${city} - ${state}`
+    selectedLocation.textContent = `${city} - ${state}`
+    totalCount.textContent = `${totalProperties} imoveis à venda em ${city} - ${state}`
+
     data.search.result.listings.forEach(dt => {
       const home = {
         city: dt.listing.address.city,
@@ -86,8 +102,9 @@ const getImovel = async () => {
     return data
   }
   catch(err){
-    console.log(err)
-    errorMsg.textContent = `Deu ruim`
+    console.log(err, 'erro que deu')
+    errorMsg.textContent = `"ALGO DEU ERRADO NA SUA BUSCA. POR FAVOR, TENTE NOVAMENTE"`
+    errorMsg.value.innerText = errorMsg.textContent
   }
 }
 
@@ -124,12 +141,8 @@ const buildHtml = () => {
   })
   divCards.innerHTML = cardPropery
 
-  console.log(property)
-  // console.log(totalProperties, 'qtde property', city ,state)
 }
 
 getImovel().then( (data) => {
-  // console.log(data)
-  // console.log(property)
   buildHtml()
 })
